@@ -2,7 +2,7 @@
  * @Author: renlei
  * @Date: 2019-11-05 15:11:55
  * @LastEditors: renlei
- * @LastEditTime: 2019-11-05 18:21:31
+ * @LastEditTime: 2019-11-06 11:07:27
  * @Description: 入口文件
  */
 //vue.esm预编译调试的时候调用，支持最新标准的语法
@@ -18,9 +18,12 @@ new Vue({
     lcc: {
       data() {
         return {
-          name: 're'
-        }
+          name: 'rasdasdczxczczxce'
+        };
       },
+        mounted () {
+          console.log("++asdasdas+")
+        },
       template: `
       <div><h1>{{name}}</h1></div>
       `
