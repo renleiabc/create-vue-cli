@@ -1,0 +1,12 @@
+$nav-color: #F90;
+
+html {
+  background: lime;
+
+  body {
+    width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+@import "home.scss";

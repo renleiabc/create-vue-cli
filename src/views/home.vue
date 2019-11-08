@@ -2,13 +2,14 @@
  * @Author: renlei
  * @Date: 2019-11-06 11:48:32
  * @LastEditors: renlei
- * @LastEditTime: 2019-11-06 18:11:15
+ * @LastEditTime: 2019-11-07 12:44:39
  * @Description: 首页组件
  -->
 <template>
   <div class="div1">{{name}}</div>
 </template>
 <script>
+import "../assets/sass/style.scss";
 export default {
   name: "home",
   data() {
@@ -26,8 +27,8 @@ export default {
 }
 
 </script>
-<style  scoped>
-@import "../assets/css/style.css";
+<style  scoped lang="scss">
+
 .div1 {
   width: 200px;
   height: 200px;

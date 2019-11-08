@@ -2,13 +2,16 @@
  * @Author: renlei
  * @Date: 2019-11-01 17:30:46
  * @LastEditors: renlei
- * @LastEditTime: 2019-11-06 15:48:49
+ * @LastEditTime: 2019-11-07 15:07:44
  * @Description:
  */
 import Vue from 'vue'
-import Home from './components/home'
-
+import App from './App'
+import router from "./router";
+import store from './store'
 new Vue({
-  render: h => h(Home)
+  router,
+  store,
+  render: h => h(App)
 }).$mount('#app')
 

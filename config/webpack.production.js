@@ -2,8 +2,16 @@
  * @Author: renlei
  * @Date: 2019-11-01 15:12:54
  * @LastEditors: renlei
- * @LastEditTime: 2019-11-06 18:08:05
+ * @LastEditTime: 2019-11-07 14:20:41
  * @Description: 生产模式
+ */
+/* 
+webpack4.x 不支持使用extract-text-webpack-plugin问题
+解决方法：
+
+第一种：使用extract-text-webpack-plugin@next 和原本的使用一样
+
+第二种：使用mini-css-extract-plugin代替
  */
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
@@ -22,6 +30,20 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.scss/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'css-loader'
+            },
+            {
+              loader: 'sass-loader'
+            }
+          ],
+          fallback: 'style-loader'
+        })
+      },
       {
         //处理js中引入的css
         test: /\.css$/,
@@ -79,8 +101,8 @@ module.exports = {
     // })
     //这个不添加allChunks参数的话，不会抽离chunk的css
     new ExtractTextPlugin({
-      filename: 'css/[name].[hash:5].css',
-      allChunks: true
+      filename: 'css/[name].[hash:5].min.css',
+      allChunks: false
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g, //一个正则表达式，指示应优化\最小化的资产的名称。提供的正则表达式针对配置中ExtractTextPlugin实例导出的文件的文件名运行，而不是源CSS文件的文件名。默认为/\.css$/g
